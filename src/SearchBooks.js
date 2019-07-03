@@ -31,7 +31,7 @@ clearQuery = (query) => {
 
         {/* Link Close Search */}
         <Link 
-          to='/'
+          to='./'
           className='close-search'
           // clears search
           onClick={(query) => this.clearQuery(query.target.value)}
