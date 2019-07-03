@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js upgrade caniuse-lite browserslist
 
 PATH: 
   C:\Python27\;C:\Python27\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\siy\AppData\Local\Microsoft\WindowsApps;C:\Users\siy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\siy\AppData\Local\GitHubDesktop\bin;C:\Users\siy\AppData\Roaming\npm;C:\Users\siy\AppData\Local\Microsoft\WindowsApps;C:\Users\siy\AppData\Local\Yarn\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, copyfile 'C:\Users\siy\AppData\Local\Yarn\Cache\v4\npm-lodash-template-4.4.0-e73a0385c8355591746e020b99679c690e68fba0\node_modules\lodash.template\LICENSE' -> 'C:\Users\siy\iCloudDrive\GitHub\Udacity Projects\book-tracker-9000\node_modules\lodash.template\LICENSE'
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\siy\AppData\Local\Yarn\Cache\v4\npm-lodash-template-4.4.0-e73a0385c8355591746e020b99679c690e68fba0\node_modules\lodash.template\index.js' -> 'C:\Users\siy\iCloudDrive\GitHub\Udacity Projects\book-tracker-9000\node_modules\lodash.template\index.js'
 
 npm manifest: 
   {
@@ -24,6 +24,7 @@ npm manifest:
     "dependencies": {
       "prop-types": "^15.7.2",
       "react": "^16.6.3",
+      "react-debounce-input": "^3.2.0",
       "react-dom": "^16.6.3",
       "react-router-dom": "^5.0.1",
       "react-scripts": "2.1.1"
