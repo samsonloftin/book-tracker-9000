@@ -1,40 +1,35 @@
 import React, { Component } from 'react'
-import CompletedBooks from './CompletedBooks'
-import CurrentBooks from './CurrentBooks'
-import WantedBooks from './WantedBooks'
+import PropTypes from 'prop-types'
+import Book from './Book'
 
 class Bookcase extends Component {
+
+// Tells React to only accept certain types for props
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    mark: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired
+  }
+
   render() {
-    return(
-
-    /* Book Container */
-    <div className="list-books">
-
-    {/* Header */}
-    <div className="list-books-title">
-        <h1>MyReads</h1>
-    </div>  
-
-    {/* Bookcase */}
-    <div className="list-books-content">
-      <div>
-        <CurrentBooks />
-        <WantedBooks />
-        <CompletedBooks />
+    return (
+      <div className="bookshelf">
+        <h2 className="bookshelf-title">{this.props.title}</h2>
+        <div className="bookshelf-books">
+          <ol className="books-grid">
+            {this.props.books.map((book) => (
+              <li key= {book.id}>
+                <Book
+                  book= {book}
+                  mark= {this.props.mark}
+                />
+              </li>
+            ))}
+          </ol>
+        {/* End of search-books-results tag */}  
+        </div>
+      {/* End of search-book tag */}
       </div>
-    </div>
-
-    {/* Search Button */}
-    <div className="open-search">
-      <button onClick={() => 
-        this.setState({ 
-          showSearchPage: true 
-        })
-      }>Add a book</button>
-    </div>
-
-    {/* list-books end tag */}
-    </div>
     )
   }
 }

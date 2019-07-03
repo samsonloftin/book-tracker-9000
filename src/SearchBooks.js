@@ -1,101 +1,66 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import * as BooksAPI from './BooksAPI'
+import { Link } from 'react-router-dom'
+import Book from './Book'
+import {DebounceInput} from 'react-debounce-input';
 
 class SearchBooks extends Component {
-  // Tells React to only accept certain types for props
-  static propTypes = {
-    books: PropTypes.array.isRequired,
-  }
+// Tells React to only accept certain types for props
+static propTypes = {
+  books: PropTypes.array.isRequired,
+  search: PropTypes.func.isRequired,
+  mark: PropTypes.func.isRequired,
+}
 
-  // Sets an init state for props
-  state = {
-    query: ''
-  }
+// runs query through the search function
+query = (query) => {
+  this.props.search(query.trim())
+}
 
-  updateQuery = (query) => {
-    if (this.props.searchingBooks) {
-      this.setState(() => ({
-        query: query.trim()
-      }))
-    }
-  }
-
-  clearQuery = () => {
-    this.updateQuery('')
-  }
-
-  render() {
-    const { query } = this.state
-    const { books } = this.props
-
-
-    const showBooks = books
+  render () {
 
     return (
-    <div className="search-books">
-            <div className="search-books-bar">
-              <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
-              <div className="search-books-input-wrapper">
-                {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
+      <div className="search-books">
+      <div className='search-books-bar'>
 
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
+        {/* Link Close Search */}
+        <Link 
+          to='/'
+          className='close-search'
+        >Close</Link>
 
-                { /* Search Input Field */}
-                <input
-                  type="text"
-                  placeholder="Search by title or author"
-                  value={query}
-                  onChange={(update) => this.updateQuery(update.target.value)}
-                />
-              </div>
-            </div>
+        <div className='search-books-input-wrapper'>
+          { /* Search Input Field */}
+          <DebounceInput
+            type='text'
+            debounceTimeout={300}
+            placeholder='Search by title or author'
+            onChange={(query) => this.query(query.target.value)}
+          />
+        </div>
+      </div>
 
-            <div className="search-books-results">
-              <ol className="books-grid">
-
-                {showBooks.map((book) => (
-                  <li key={book.id} className='book'>
-                    <div className="book-top">
-                      <div 
-                        className="book-cover" 
-                        style={{ 
-                          width: 128, 
-                          height: 174,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          backgroundImage: `url(${book.imageLinks.thumbnail})`
-                      }}></div>
-
-                        <div className="book-shelf-changer">
-                          <select>
-                            <option value="move" disabled>Move to...</option>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to Read</option>
-                            <option value="read">Read</option>
-                            <option value="none">None</option>
-                          </select>
-                        </div>
-
-                      </div>
-                      <div className="book-title">{book.title}</div>
-                      <div className="book-authors">{book.author}</div>
-                  </li>
-                ))}
-
-              </ol>
-            
-            {/* End of search-books-results tag */}  
-            </div>
-
-          {/* End of search-book tag */}
-          </div>
+      <div className='search-books-results'>
+        <ol className="books-grid">
+          {/* Searched Books */}
+           {(this.props.books !== undefined) ? (
+            this.props.books.map((book) => (
+            // Adds a unique key to the list item
+            <li key={book.id}>
+              <Book
+                book={book}
+                mark={this.props.mark}
+              />
+            </li>
+            ))) : (
+              <li>
+                <div className="book-title">No books to display</div>
+              </li>
+            )
+          }
+        </ol>
+      </div>
+    </div>
     )
   }
 }
