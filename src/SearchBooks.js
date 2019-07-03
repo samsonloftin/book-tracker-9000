@@ -45,13 +45,20 @@ query = (query) => {
           {/* Searched Books */}
            {(this.props.books !== undefined) ? (
             this.props.books.map((book) => (
-            // Adds a unique key to the list item
-            <li key={book.id}>
-              <Book
-                book={book}
-                mark={this.props.mark}
-              />
+
+              (book !== undefined) ? (
+              // Adds a unique key to the list item
+              <li key={book.id}>
+                <Book
+                  book={book}
+                  mark={this.props.mark}
+                />
             </li>
+              ) : (
+                <li>
+                <div className="book-title">No books to display</div>
+              </li>
+              )
             ))) : (
               <li>
                 <div className="book-title">No books to display</div>

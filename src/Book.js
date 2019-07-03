@@ -22,14 +22,17 @@ class Book extends Component {
     })
   }
 
-  placeholder = (image) => {
-    if (image === undefined) {
-      image = './placeholder.jpg'
-    } 
-    return ('url(' + image + ')')
+  placeholder = () => {
+    if (this.props.book.imageLinks.thumbnail === undefined) {
+      let image = './placeholder.jpg'
+      return ('url(' + image + ')')
+    } else {
+      return ('url(' + this.props.book.imageLinks.thumbnail + ')')
+    }
   }
 
   render() {
+    const image = this.placeholder()
     return (
       <div className="book">
         <div className="book-top">
@@ -39,7 +42,7 @@ class Book extends Component {
             height: 193,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundImage: this.placeholder(this.props.book.imageLinks.thumbnail)
+            backgroundImage: image
           }}></div>
 
           <div className="book-shelf-changer">
