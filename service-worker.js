@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/samsonloftin/book-tracker-9000/precache-manifest.9b1d7829dc8931ca0a1ab713041f160b.js"
+  "/book-tracker-9000/precache-manifest.4b04e7406fa5e3ee5b95cdc5827337ec.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/samsonloftin/book-tracker-9000/index.html", {
+workbox.routing.registerNavigationRoute("/book-tracker-9000/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
