@@ -67,7 +67,9 @@ class BooksApp extends Component {
         })
     } else {
       // clears search results
-      this.setState({ searchingBooks: [] })
+      return this.setState({
+        searchedBooks: []
+      })
     }
   }
 

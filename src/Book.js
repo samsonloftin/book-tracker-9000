@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import placeholderCover from './icons/placeholder.jpg'
 
 class Book extends Component {
   constructor(props) {
@@ -23,12 +24,13 @@ class Book extends Component {
   }
 
   placeholder = () => {
-    if (this.props.book.imageLinks.thumbnail === undefined) {
-      let image = './placeholder.jpg'
-      return ('url(' + image + ')')
+    let image;
+    if (this.props.book.imageLinks === undefined) {
+      image = 'url(' + placeholderCover + ')'
     } else {
-      return ('url(' + this.props.book.imageLinks.thumbnail + ')')
+      image = 'url(' + this.props.book.imageLinks.thumbnail + ')'
     }
+    return image
   }
 
   render() {

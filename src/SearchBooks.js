@@ -17,6 +17,12 @@ query = (query) => {
   this.props.search(query.trim())
 }
 
+clearQuery = (query) => {
+  let clear = query
+  clear = ''
+  this.props.search(clear)
+}
+
   render () {
 
     return (
@@ -27,6 +33,8 @@ query = (query) => {
         <Link 
           to='/'
           className='close-search'
+          // clears search
+          onClick={(query) => this.clearQuery(query.target.value)}
         >Close</Link>
 
         <div className='search-books-input-wrapper'>
