@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
-import { Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Bookcase from './Bookcase'
 import SearchBooks from './SearchBooks'
@@ -79,58 +79,59 @@ class BooksApp extends Component {
       <div className='app'>
 
         {/* Bookcase */ }
-        <Route exact path='/' render={() => (
+        <Switch>
+          <Route exact path='/' render={() => (
 
-          /* Book Container */
-          <div className='list-books'>
+            /* Book Container */
+            <div className='list-books'>
 
-            {/* Header */}
-            <div className='list-books-title'>
-                <h1>Book Tracker</h1>
-            </div>  
+              {/* Header */}
+              <div className='list-books-title'>
+                  <h1>Book Tracker</h1>
+              </div>  
 
-            {/* Bookcase - lists all books */}
-            <div className='list-books-content'>
-              <div>
-                {/* Reading */}
-                <Bookcase 
-                  title='Reading'
-                  mark={this.markBook}
-                  books={this.sortBooks('currentlyReading')}
-                />
-                {/* Will Read */}
-                <Bookcase 
-                  title='Will Read'
-                  mark={this.markBook}
-                  books={this.sortBooks('wantToRead')}
-                />
-                {/* Read */}
-                <Bookcase 
-                  title='Read'
-                  mark={this.markBook}
-                  books={this.sortBooks('read')}
-                />
+              {/* Bookcase - lists all books */}
+              <div className='list-books-content'>
+                <div>
+                  {/* Reading */}
+                  <Bookcase 
+                    title='Reading'
+                    mark={this.markBook}
+                    books={this.sortBooks('currentlyReading')}
+                  />
+                  {/* Will Read */}
+                  <Bookcase 
+                    title='Will Read'
+                    mark={this.markBook}
+                    books={this.sortBooks('wantToRead')}
+                  />
+                  {/* Read */}
+                  <Bookcase 
+                    title='Read'
+                    mark={this.markBook}
+                    books={this.sortBooks('read')}
+                  />
+                </div>
+
+              {/* Link Open Search */}
+              <Link to='/search'
+                    className='open-search'
+              >Open</Link>
+
               </div>
-
-            {/* Link Open Search */}
-            <Link to='/search'
-                  className='open-search'
-            >Open</Link>
-
             </div>
-          </div>
-        /* Bookcase End Tag*/  
-        )} />
+          /* Bookcase End Tag*/  
+          )} />
 
-        {/* Search Page */}
-        <Route exact path='/search' render={() => (
-          <SearchBooks 
-            books={this.state.searchedBooks}
-            search={this.searchBooks}
-            mark={this.markBook}
-          />
-        )}/>
-
+          {/* Search Page */}
+          <Route exact path='/search' render={() => (
+            <SearchBooks 
+              books={this.state.searchedBooks}
+              search={this.searchBooks}
+              mark={this.markBook}
+            />
+          )}/>
+        </Switch>
       </div>
     )
   }
