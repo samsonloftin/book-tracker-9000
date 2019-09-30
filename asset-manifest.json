@@ -1,14 +1,16 @@
 {
-  "main.css": "/book-tracker-9000/static/css/main.a0ca1d7a.chunk.css",
-  "main.js": "/book-tracker-9000/static/js/main.403c1257.chunk.js",
-  "main.js.map": "/book-tracker-9000/static/js/main.403c1257.chunk.js.map",
-  "static/js/1.ed2fa78c.chunk.js": "/book-tracker-9000/static/js/1.ed2fa78c.chunk.js",
-  "static/js/1.ed2fa78c.chunk.js.map": "/book-tracker-9000/static/js/1.ed2fa78c.chunk.js.map",
-  "runtime~main.js": "/book-tracker-9000/static/js/runtime~main.7b613134.js",
-  "runtime~main.js.map": "/book-tracker-9000/static/js/runtime~main.7b613134.js.map",
-  "static/media/App.css": "/book-tracker-9000/static/media/arrow-drop-down.9d4e3f36.svg",
-  "static/css/main.a0ca1d7a.chunk.css.map": "/book-tracker-9000/static/css/main.a0ca1d7a.chunk.css.map",
-  "index.html": "/book-tracker-9000/index.html",
-  "precache-manifest.efa1e6e7d36b7a08705cabd811facea8.js": "/book-tracker-9000/precache-manifest.efa1e6e7d36b7a08705cabd811facea8.js",
-  "service-worker.js": "/book-tracker-9000/service-worker.js"
+  "files": {
+    "main.css": "/book-tracker-9000/static/css/main.dfe9f5aa.chunk.css",
+    "main.js": "/book-tracker-9000/static/js/main.e628e6e3.chunk.js",
+    "main.js.map": "/book-tracker-9000/static/js/main.e628e6e3.chunk.js.map",
+    "runtime~main.js": "/book-tracker-9000/static/js/runtime~main.6b17a528.js",
+    "runtime~main.js.map": "/book-tracker-9000/static/js/runtime~main.6b17a528.js.map",
+    "static/js/2.bef0a43b.chunk.js": "/book-tracker-9000/static/js/2.bef0a43b.chunk.js",
+    "static/js/2.bef0a43b.chunk.js.map": "/book-tracker-9000/static/js/2.bef0a43b.chunk.js.map",
+    "index.html": "/book-tracker-9000/index.html",
+    "precache-manifest.8dc303ba0e951c7c7457eefc6e36bab7.js": "/book-tracker-9000/precache-manifest.8dc303ba0e951c7c7457eefc6e36bab7.js",
+    "service-worker.js": "/book-tracker-9000/service-worker.js",
+    "static/css/main.dfe9f5aa.chunk.css.map": "/book-tracker-9000/static/css/main.dfe9f5aa.chunk.css.map",
+    "static/media/app.scss": "/book-tracker-9000/static/media/arrow-drop-down.9d4e3f36.svg"
+  }
 }
