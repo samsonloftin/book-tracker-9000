@@ -40,12 +40,12 @@ class Book extends Component {
         <div className="book-top">
 
           <div className="book-cover" style={{ 
-            width: 128,
-            height: 193,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundImage: image
-          }}></div>
+          }}>
+            <div className="book-cover-line"></div>
+          </div>
 
           <div className="book-shelf-changer">
             <select 
@@ -60,8 +60,6 @@ class Book extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     )
   }

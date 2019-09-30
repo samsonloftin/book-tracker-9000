@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import './App.css'
 import * as BooksAPI from './BooksAPI'
-import { Switch, Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Bookcase from './Bookcase'
 import SearchBooks from './SearchBooks'
+import './sass/app.scss'
+import Navigation from './navigation'
 
 class BooksApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
       books: [],
-      searchedBooks: []
+      searchedBooks: [],
     }
   }
 
@@ -78,51 +78,19 @@ class BooksApp extends Component {
       // wraps the entire app in a div
       <div className='app'>
 
+        {/* Header */}
+        <div className='list-header'>
+          <div className='list-header-center'>
+            <div className='list-books-title'>
+              <div>Book Tracker 9000</div>
+            </div>
+            <Navigation menu={ this.state.menu } />
+            <a href='https://github.com/samsonloftin/book-tracker-9000' tabIndex="0" className='repo'>Github Repo</a>
+          </div>
+        </div>
+
         {/* Bookcase */ }
         <Switch>
-          <Route exact path='/' render={() => (
-
-            /* Book Container */
-            <div className='list-books'>
-
-              {/* Header */}
-              <div className='list-books-title'>
-                  <h1>Book Tracker</h1>
-              </div>  
-
-              {/* Bookcase - lists all books */}
-              <div className='list-books-content'>
-                <div>
-                  {/* Reading */}
-                  <Bookcase 
-                    title='Reading'
-                    mark={this.markBook}
-                    books={this.sortBooks('currentlyReading')}
-                  />
-                  {/* Will Read */}
-                  <Bookcase 
-                    title='Will Read'
-                    mark={this.markBook}
-                    books={this.sortBooks('wantToRead')}
-                  />
-                  {/* Read */}
-                  <Bookcase 
-                    title='Read'
-                    mark={this.markBook}
-                    books={this.sortBooks('read')}
-                  />
-                </div>
-
-              {/* Link Open Search */}
-              <Link to='/search'
-                    className='open-search'
-              >Open</Link>
-
-              </div>
-            </div>
-          /* Bookcase End Tag*/  
-          )} />
-
           {/* Search Page */}
           <Route exact path='/search' render={() => (
             <SearchBooks 
@@ -130,6 +98,44 @@ class BooksApp extends Component {
               search={this.searchBooks}
               mark={this.markBook}
             />
+          )}/>
+
+          {/* Redirect Root */}
+          <Route exact path='/' render={() => (
+            <Redirect to='/reading' />
+          )}/>
+
+          {/* Reading Component */}
+          <Route exact path='/reading' render={() => (
+            <div>
+              <Bookcase 
+                title='Reading'
+                mark={this.markBook}
+                books={this.sortBooks('currentlyReading')}
+              />
+            </div>
+          )}/>
+
+          {/* Will Read Component */}
+          <Route exact path='/willread' render={() => (
+            <div>
+              <Bookcase 
+                title='Will Read'
+                mark={this.markBook}
+                books={this.sortBooks('wantToRead')}
+              />
+            </div>
+          )}/>
+
+          {/* Read Component */}
+          <Route exact path='/read' render={() => (
+            <div>
+              <Bookcase 
+                title='Read'
+                mark={this.markBook}
+                books={this.sortBooks('read')}
+              />
+            </div>
           )}/>
         </Switch>
       </div>
