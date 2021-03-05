@@ -2,7 +2,7 @@
 
 ## Demo
 
-[Demo](https://www.samsonloftin.com/book-tracker-9000/)
+[Demo](https://samsonloftin.github.io/book-tracker-9000/)
 
 ### Udacity Project
 
